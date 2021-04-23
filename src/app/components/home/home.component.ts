@@ -19,8 +19,7 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    window.setTimeout(function () {
-      console.log("called")
+    window.setTimeout(function() {
       window.location.reload();
     }, 30000);
   }
@@ -30,10 +29,10 @@ export class HomeComponent implements OnInit {
   }
 
   navigateTo(): void{
-    this.router.navigateByUrl('/dashboard/1');
+    this.router.navigateByUrl('/covidDetails/1');
   }
 
   navigateToICU(): void{
-    this.router.navigateByUrl('/dashboard/2');
+    this.router.navigateByUrl('/covidDetails/2');
   }
 }

@@ -1,4 +1,3 @@
-import { AgmCoreModule } from '@agm/core';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -21,7 +20,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { LayoutModule } from '@angular/cdk/layout';
-//import { ChartsModule } from 'ng2-charts';
+import { ChartsModule } from 'ng2-charts';
 import { NavComponent } from './components/navigation/nav/nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -67,7 +66,7 @@ import { MiniCardComponent } from './components/cards/mini-cards/mini-card/mini-
     MatMenuModule,
     MatButtonModule,
     LayoutModule,
-    //ChartsModule,
+    ChartsModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
