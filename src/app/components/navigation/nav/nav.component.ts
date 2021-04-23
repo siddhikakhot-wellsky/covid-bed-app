@@ -20,7 +20,7 @@ export class NavComponent implements OnInit{
 
   constructor(private breakpointObserver: BreakpointObserver) {}
   ngOnInit(): void {
-    this.menuItems = ['dashboard', 'HospitalBeds'];
+    this.menuItems = ['dashboard', 'Beds'];
   }
 
   

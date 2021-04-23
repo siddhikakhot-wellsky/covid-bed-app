@@ -39,6 +39,6 @@ cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
   } 
 
   navigateTo(){
-    this.router.navigate(['HospitalBeds'])
+    this.router.navigate(['Beds'])
   }
 }

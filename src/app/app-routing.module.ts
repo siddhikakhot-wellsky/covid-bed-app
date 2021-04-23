@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', redirectTo:'/dashboard',pathMatch:'full'},
   { path: 'dashboard', component: Covid19dashboardComponent },
   {
-    path: 'HospitalBeds', component:HomeComponent
+    path: 'Beds', component:HomeComponent
   },
   {
     path: 'covidDetails/:id', component:CovidDetailsDataComponent

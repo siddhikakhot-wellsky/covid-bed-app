@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatSort } from '@angular/material/sort';
@@ -56,7 +56,7 @@ export class CovidDetailsDataComponent implements OnInit {
   title: string;
   covidMoreBeds: string;
   covidLessBeds: string;
-  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router) {
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private cdr:ChangeDetectorRef) {
     this.formGroup = this.fb.group({
       Hospital: '',
       County: ''
@@ -84,6 +84,7 @@ export class CovidDetailsDataComponent implements OnInit {
       this.covidMoreBeds = '5 or more beds';
       this.dataSource = new MatTableDataSource(ELEMENT_DATA_ICU);
     }
+    this.cdr.detectChanges();
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
