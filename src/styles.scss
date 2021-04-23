@@ -43,6 +43,11 @@ body {
   position: relative;
   padding-top:5rem;
 }
+
+.alignClass{
+  text-align: center;
+}
+
 .mat-flat-button.mat-primary {
   border-radius: 3px;
   background-color: #00a1b0;
@@ -104,12 +109,12 @@ input.mat-input-element {
   text-transform: uppercase;
 }
 
-.filterContainer .applyStyle {
-  color: #00a1b0;
-  font-family: 'Roboto-Bold';
-  font-size: 0.9rem;
-  padding: 0;
-}
+// .filterContainer .applyStyle {
+//   color: #00a1b0;
+//   font-family: 'Roboto-Bold';
+//   font-size: 0.9rem;
+//   padding: 0;
+// }
 .mat-sort-header-arrow {
   display:none !important;
 }
@@ -198,9 +203,7 @@ font-size: 14px;
   display:none;
 }
 
-.mat-empty span:first-child {
-  color: #ff0000;
-}
+
 
 /*styles.css*/
 .chartContainer canvas {

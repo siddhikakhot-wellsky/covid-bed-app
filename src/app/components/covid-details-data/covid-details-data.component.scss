@@ -10,10 +10,24 @@
     padding-top: 1rem;
 }
 
+.alignClass{
+    align-content: center;
+}
+
+.paddingContainer{
+    padding-top: 0rem;
+}
 .padding{
     padding-bottom: 1rem;
 }
 
 .display{
     display:none
+}
+
+.navbar-brand{
+    color: navy;
+    letter-spacing: 1.5rem;
+    font-weight: 900;
+    font-size: larger;
 }

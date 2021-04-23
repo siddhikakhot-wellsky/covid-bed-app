@@ -1,63 +1,77 @@
 <!-- <app-header></app-header>
 <div class="container-fluid paddingTop">
     <div class="row pb-5">
-        <div class="col-12 col-sm-3 summaryDetails pb-3 pb-sm-0">Covid 19 Beds</div>
-        <div class="row">
-            <div class="col-12 col-sm-4 pb-4 pb-sm-0">
-                <div class="card bg-info text-white pt-4 pb-4 summaryCard border-0">
-                    <div class="p-0" (click)="navigateTo()">
-                        <div class="col-9 float-left whiteText pt-4 pl-6">Total</div>
-                        <div class="col-7 float-right countNo">203</div>   
+        <div class="col-9 col-sm-3 summaryDetails pb-3 pb-sm-0">Covid 19 Beds</div>
+        <div class="row w-100">
+            <div class="col-55 col-sm-4 pb-4 pb-sm-0">
+                <div class="card bg-info text-white pb-4 summaryCard border-0 pl-3 pr-3" (click)="navigateTo()">
+                    <div>
+                        <div class="col-12 whiteText pt-4">Total</div>
+                    </div>
+                    <div class="p-1">
+                        <div class="col-12 countNo pt-4">{{totalCount}}</div> 
                     </div>
                 </div>
             </div>
             <div class="col-12 col-sm-4 pb-4 pb-sm-0">
-                <div class="card bg-danger text-white pt-4 pb-4 border-0">
-                    <div class="p-0" (click)="navigateTo()">
-                        <div class="col-9 float-left whiteText pt-4 pl-6">Occupied</div>
-                        <div class="col-7 float-right countNo">182</div>
+                <div class="card bg-danger text-white pb-4 summaryCard border-0 pl-3 pr-3" (click)="navigateTo()">
+                    <div>
+                        <div class="col-13 whiteText pt-4">Occupied</div>
+                    </div>
+                    <div class="p-1">
+                        <div class="col-12 countNo pt-4">{{occupiedCount}}</div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-sm-4 pb-4 pb-sm-0">
-                <div class="card bg-success text-white pt-4 pb-4 border-0">
-                    <div class="p-0" (click)="navigateTo()">
-                        <div class="col-8 float-left whiteText pt-4 pl-6">Vacant</div>
-                        <div class="col-10 float-right countNo">10000</div>
+                <div class="card bg-success text-white pb-4 summaryCard border-0 pl-3 pr-3" (click)="navigateTo()">
+                    <div>
+                        <div class="col-13 whiteText pt-4">Vacant</div>
+                    </div>
+                    <div class="p-1">
+                        <div class="col-12 countNo pt-4">{{vacantCount}}</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>  
     <div class="row pb-5">
-        <div class="col-12 col-sm-3 summaryDetails pb-3 pb-sm-0">Covid 19 ICU Beds</div>
-        <div class="row">
+        <div class="col-9 col-sm-3 summaryDetails pb-3 pb-sm-0">Covid 19 ICU Beds</div>
+        <div class="row w-100">
             <div class="col-12 col-sm-4 pb-4 pb-sm-0">
-                <div class="card bg-info text-white pt-4 pb-4 summaryCard border-0">
-                    <div class="p-0" (click)="navigateToICU()">
-                        <div class="col-9 float-left whiteText pt-4 pl-6">Total</div>
-                        <div class="col-7 float-right countNo">203</div>   
+                <div class="card bg-info text-white pb-4 summaryCard border-0 pl-3 pr-3" (click)="navigateTo()">
+                    <div>
+                        <div class="col-12 whiteText pt-4">Total</div>
+                    </div>
+                    <div class="p-1">
+                        <div class="col-12 countNo pt-4">{{totalICUCount}}</div> 
                     </div>
                 </div>
             </div>
             <div class="col-12 col-sm-4 pb-4 pb-sm-0">
-                <div class="card bg-danger text-white pt-4 pb-4 border-0">
-                    <div class="p-0" (click)="navigateToICU()">
-                        <div class="col-9 float-left whiteText pt-4 pl-6">Occupied</div>
-                        <div class="col-7 float-right countNo">182</div>
+                <div class="card bg-danger text-white pb-4 summaryCard border-0 pl-3 pr-3" (click)="navigateTo()">
+                    <div>
+                        <div class="col-13 whiteText pt-4">Occupied</div>
+                    </div>
+                    <div class="p-1">
+                        <div class="col-12 countNo pt-4">{{occupiedICUCount}}</div>
                     </div>
                 </div>
             </div>
             <div class="col-12 col-sm-4 pb-4 pb-sm-0">
-                <div class="card bg-success text-white pt-4 pb-4 border-0">
-                    <div class="p-0" (click)="navigateToICU()">
-                        <div class="col-8 float-left whiteText pt-4 pl-6">Vacant</div>
-                        <div class="col-7 float-right countNo">100</div>
+                <div class="card bg-success text-white pb-4 summaryCard border-0 pl-3 pr-3" (click)="navigateTo()">
+                    <div>
+                        <div class="col-13 whiteText pt-4">Vacant</div>
+                    </div>
+                    <div class="p-1">
+                        <div class="col-12 countNo pt-4">{{vacantICUCount}}</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>  
+ 
+</div>
     <div class="row pt-5">
         <div class="float-left col-12 bg-light text-dark p-sm-5 p-0 ">Last Updated on</div>
     </div>

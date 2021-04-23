@@ -8,14 +8,21 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   active = true;
-  DomesticCount = 0;
-  IntraCount = 0;
-  IntnCount = 0;
-  Total = 0;
+  vacantCount = Math.floor(1000 + Math.random() * 9000);
+  vacantICUCount = Math.floor(100 + Math.random() * 900);
+  occupiedCount = Math.floor(1000 + Math.random() * 9000);
+  occupiedICUCount = Math.floor(100 + Math.random() * 900);
+  totalCount = this.occupiedCount + this.vacantCount;
+  totalICUCount = this.occupiedICUCount + this.vacantICUCount;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+   }
 
   ngOnInit(): void {
+    window.setTimeout(function () {
+      console.log("called")
+      window.location.reload();
+    }, 30000);
   }
 
   onChange(value: any): void {
