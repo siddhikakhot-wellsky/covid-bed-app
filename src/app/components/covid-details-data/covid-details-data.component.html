@@ -1,0 +1,85 @@
+<mat-card>
+    <mat-card-header>
+        <div class="fixed-top bg-dark">
+            <div class="col-12 pl-4 pt-4">
+                <a class="navbar-brand">{{title}}</a>
+            </div>
+        </div>
+    </mat-card-header>
+</mat-card>
+
+<div class="container-fluid paddingTop">
+    <div class="row pb-4 filterContainer"> 
+        <div class="col-2" > 
+            <mat-form-field class="pl-2" >  
+                  <mat-icon matSuffix class="searchIcon">search</mat-icon> 
+                  <input matInput type="search" placeholder="Search" (keyup)="searchFilters($event.target.value)">     
+            </mat-form-field>       
+        </div>
+        <div class="col-10">
+            <form [formGroup]="formGroup">  
+            <div class="row">
+                <div class="col-1 filterStyle ml-4 pt-3 pl-4 ">FILTER</div>
+                <div class="col-2 mr-3 ml-3"> 
+                    <mat-form-field>
+                        <mat-label>Hospital</mat-label>
+                        <mat-select formControlName="Hospital">
+                        <mat-option *ngFor="let hos of hospitals" [value]="hos.value">
+                            {{hos.viewValue}}
+                        </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="col-2 mr-3 ml-3"> 
+                    <mat-form-field>
+                        <mat-label>County</mat-label>
+                        <mat-select formControlName="County">
+                        <mat-option *ngFor="let county of counties" [value]="county.value">
+                            {{county.viewValue}}
+                        </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                  </div>
+                  <div class="col-1 pt-3 pr-1"> <button mat-button color="primary" class="applyStyle" (click)="applyFilters()">APPLY</button></div>
+                  <div class="col-1 pt-3 pr-1"> <button mat-button color="primary" class="applyStyle" (click)="refresh()"> RESET</button></div>
+            
+            </div>
+            </form>
+        </div>   
+    </div> 
+    <div class="row">
+        <div class="float-right padding">Availability:
+            <span class="bg-success col-sm-3 corners" (click)="getVacantBeds()">{{covidMoreBeds}}</span>
+            <span class="bg-warning col-sm-3 corners">{{covidLessBeds}}</span>
+            <span class="bg-red col-sm-3 corners">No Beds</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="table-responsive">
+            <table [class.display]="id==2" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-100 dataTable">
+                <ng-container *ngFor="let disCol of displayedColumns; let colIndex = index" matColumnDef="{{disCol}}">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{disCol}}
+                    </th>
+                    <td mat-cell *matCellDef="let element " [ngClass]="{'bg-red' :element.Vacant === '0', 'bg-warning':element.Vacant < 50 && element.Vacant > 0, 'bg-success': element.Vacant >= 50 }">
+                    {{element[disCol]}}
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <table [class.display]="id==1" mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8 w-100 dataTable">
+                <ng-container *ngFor="let disCol of displayedColumns; let colIndex = index" matColumnDef="{{disCol}}">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>{{disCol}}
+                    </th>
+                    <td mat-cell *matCellDef="let element " [ngClass]="{'bg-red' :element.Vacant === '0', 'bg-warning':element.Vacant < 5 && element.Vacant > 0, 'bg-success': element.Vacant >= 5 }">{{element[disCol]}}
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator #paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        
+        </div>
+    </div>
+</div>
+

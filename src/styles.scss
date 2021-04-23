@@ -1,1 +1,204 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$covid-bed-app-primary: mat-palette($mat-indigo);
+$covid-bed-app-accent: mat-palette($mat-pink, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$covid-bed-app-warn: mat-palette($mat-red);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$covid-bed-app-theme: mat-light-theme((
+  color: (
+    primary: $covid-bed-app-primary,
+    accent: $covid-bed-app-accent,
+    warn: $covid-bed-app-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($covid-bed-app-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+  font-family: 'Roboto';
+}
+.paddingTop {
+  position: relative;
+  padding-top:5rem;
+}
+.mat-flat-button.mat-primary {
+  border-radius: 3px;
+  background-color: #00a1b0;
+}
+
+/* style for filter and grid */
+
+.mat-form-field-infix {
+  width:170px !important;
+  /* border-top:0 !important;
+  padding-bottom: 0 !important; */
+}
+::ng-deep .mat-elevation-z8 {
+  box-shadow : none;
+}
+.filterContainer ::ng-deep  .mat-flat-button.mat-primary {
+  width:8rem;
+  height:3.2rem;
+} 
+::ng-deep .mat-form-field-hide-placeholder .mat-select-placeholder {
+  padding-bottom: 8px;
+}
+tr.mat-header-row {
+  height:40px;  
+  box-shadow: 0 -2px 4px 0 rgba(199, 199, 199, 0.5);  
+  background-color: #ededed;
+}
+tr.mat-row {
+  background-color: #fafeff;
+  font-size: 0.75rem;
+}
+tr.mat-row:hover {
+  background-color: #dff5f7;
+}
+mat-label {
+    font-size: 0.9rem;
+    font-family: 'Roboto-Bold';
+}
+input.mat-input-element {
+    padding-bottom:0.5rem;
+    padding-left: 1rem; 
+}
+.cdk-overlay-pane {
+    max-width: 95vw !important;
+}
+
+.filterStyle {
+  border-left: solid 1px #979797;
+  color: #a9a9a9;
+  padding-left: 1.9em;
+  font-size: 0.9rem;
+  font-family: 'Roboto-Bold';
+}
+
+.navbar-brand {
+  font-family: 'Montserrat', sans-serif;
+  //font-weight: bold;
+  color:whitesmoke;
+  text-transform: uppercase;
+}
+
+.filterContainer .applyStyle {
+  color: #00a1b0;
+  font-family: 'Roboto-Bold';
+  font-size: 0.9rem;
+  padding: 0;
+}
+.mat-sort-header-arrow {
+  display:none !important;
+}
+
+.sorticons i.fa{
+font-size: 14px;
+}
+.sorticons i.fa.fa-caret-down {
+  position: relative;
+  top: 7px;
+  left: 8px;
+}
+
+
+
+.dataTable .mat-icon {
+  fill: #00a1b0 !important;
+  height: 16px !important;
+  width: 16px !important;
+}
+
+.filterContainer .searchIcon {
+  cursor: pointer;
+}
+.filterContainer .mat-form-field-wrapper {
+  width:80%;
+}
+
+.dataTable th.mat-header-cell {     
+  padding: 0px 0px 0 15px !important; 
+}
+.dataTable td.mat-cell{    
+  padding: 0px 0px 0 15px !important; 
+  word-break: break-all; 
+} 
+
+/* style for filter and grid ends */
+.actionBtn{
+  text-align:right;
+}
+.actionBtn button{
+  height:25px;
+  width:25px;
+  line-height: 25px;
+}
+.actionBtn button:first-child{
+  margin-right:10px;
+}
+
+.hiddenField {
+  display:none;
+}
+.mat-paginator {
+  position: absolute;
+  bottom: -5rem;
+  text-align: right;
+  margin-right: 2rem;
+  right:0;
+}
+.dwnButton {
+  position: fixed;
+  bottom: 5rem;
+  right:2rem;
+  cursor: pointer;
+}
+.custom-modalbox .addRecord {
+  display: none;
+}
+
+.custom-modalbox .paddingTop{ padding-top:0; }
+.custom-modalbox .paddingTop .mat-flat-button.mat-primary {
+  display:none;
+}
+
+.custom-modalbox .paddingTop .mat-flat-button.doneBtn {
+  display:block;
+}
+
+.custom-modalbox .dataTable .mat-icon-button {
+  display:none;
+}
+.custom-modalbox .mat-form-field-infix {
+  width:130px !important;  
+}
+.custom-modalbox .dwnButton {
+  display:none;
+}
+
+.mat-empty span:first-child {
+  color: #ff0000;
+}
+
