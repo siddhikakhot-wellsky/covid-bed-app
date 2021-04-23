@@ -15,13 +15,37 @@ import { AppComponent } from './app.component';
 import { CovidDetailsDataComponent } from './components/covid-details-data/covid-details-data.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
+import { Covid19dashboardComponent } from './components/covid-19-dashboard/covid19dashboard/covid19dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { LayoutModule } from '@angular/cdk/layout';
+import { ChartsModule } from 'ng2-charts';
+import { NavComponent } from './components/navigation/nav/nav.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { CardComponent } from './components/cards/card/card.component';
+import { ConfirmedCasesComponent } from './components/charts/confirmed-cases/confirmed-cases.component';
+import { GlobalSummaryComponent } from './components/charts/global-summary/global-summary.component';
+import { ConfirmedBycountryComponent } from './components/charts/confirmed-bycountry/confirmed-bycountry.component';
+import { TotalSuppliesComponent } from './components/charts/total-supplies/total-supplies.component';
+import { MiniCardComponent } from './components/cards/mini-cards/mini-card/mini-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    CovidDetailsDataComponent
+    CovidDetailsDataComponent,
+    Covid19dashboardComponent,
+    NavComponent,
+    CardComponent,
+    ConfirmedCasesComponent,
+    GlobalSummaryComponent,
+    ConfirmedBycountryComponent,
+    TotalSuppliesComponent,
+    MiniCardComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +62,14 @@ import { HomeComponent } from './components/home/home.component';
     MatInputModule,
     MatSortModule,
     MatTableModule,
-
+    MatGridListModule,
+    MatMenuModule,
+    MatButtonModule,
+    LayoutModule,
+    ChartsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

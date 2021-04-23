@@ -1,23 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CovidDetailsDataComponent } from './components/covid-details-data/covid-details-data.component';
-import { HomeComponent } from './components/home/home.component';
+import { Covid19dashboardComponent } from './components/covid-19-dashboard/covid19dashboard/covid19dashboard.component';
 
-const routes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
-  {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'dashboard/:id',
-    component: CovidDetailsDataComponent
-  }
-
-];
+const routes: Routes = [{ path: 'dashboard', component: Covid19dashboardComponent }];
+ 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
