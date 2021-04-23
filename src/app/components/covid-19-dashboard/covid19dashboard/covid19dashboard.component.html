@@ -1,0 +1,35 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Supplies & Cases</h1>
+  <mat-grid-list cols="{{ ( cardLayout | async )?.columns }}" rowHeight="200px">
+    <!--Mini Cards-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
+    [rowspan]="( cardLayout | async )?.miniCard.rows">
+    <app-mini-card title="Available Hospitals" textValue="Total Hospitals" value="1200" color="green" percentValue="56"></app-mini-card>
+    </mat-grid-tile>
+    <!--Charts-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Confirmed cases by country">
+          <app-confirmed-bycountry></app-confirmed-bycountry>
+      </app-card>
+   </mat-grid-tile>
+   <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="confirmed cases">
+          <app-confirmed-cases></app-confirmed-cases>
+      </app-card>
+   </mat-grid-tile>
+   <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Global summary">
+          <app-global-summary></app-global-summary>
+      </app-card>
+   </mat-grid-tile>
+   <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
+      <app-card title="Total supplies">
+          <app-total-supplies></app-total-supplies>
+      </app-card>
+   </mat-grid-tile>
+    <!--Table-->
+    <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
+      <app-card title="Card 9"><div>Table Content Here</div></app-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+ </div>
