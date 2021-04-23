@@ -8,6 +8,8 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./covid19dashboard.component.scss']
 })
 export class Covid19dashboardComponent {
+  
+  miniCardData = [];
 
 cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
    map(({ matches }) => {
@@ -31,4 +33,8 @@ cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
 
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  ngOnInit() {
+  } 
+
 }
