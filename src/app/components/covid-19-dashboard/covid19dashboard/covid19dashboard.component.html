@@ -19,7 +19,7 @@
 
     <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
     [rowspan]="( cardLayout | async )?.miniCard.rows">
-    <app-mini-card title="No Of Beds Available" icon="accessibility" isIncrease="true" textValue="No Of Beds Available" value="220000" color="green" percentValue="56"></app-mini-card>
+    <app-mini-card title="No Of Beds Available" icon="accessibility" isIncrease="true" textValue="No Of Beds Available" value="220000" color="green" percentValue="56" (click)="navigateTo()"></app-mini-card>
     </mat-grid-tile>
 
     <!--Charts-->

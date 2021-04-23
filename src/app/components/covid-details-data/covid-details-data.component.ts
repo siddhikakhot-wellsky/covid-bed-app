@@ -24,16 +24,16 @@ export interface HospitalData {
   County: string;
 }
 const ELEMENT_DATA: HospitalData[] = [
-  {Hospital: 'Test One', Last_Updated: '21/04/2021', Total: 100, Vacant: 0, Contact: '982082137', County: 'XYZ'}
-  , {Hospital: 'Test Two', Last_Updated: '21/04/2021', Total: 100, Vacant: 49, Contact: '982082137', County: 'ABC'}
-  , {Hospital: 'Test Three', Last_Updated: '21/04/2021', Total: 100, Vacant: 67, Contact: '982082137', County: 'XYZ'}
+  {Hospital: 'Test One', Last_Updated: '21/04/2021', Total: 1000, Vacant: (Math.floor(100 + Math.random() * 900)), Contact: '982082137', County: 'XYZ'}
+  , {Hospital: 'Test Two', Last_Updated: '21/04/2021', Total: 2000, Vacant: (Math.floor(Math.random() * 9)), Contact: '982082137', County: 'ABC'}
+  , {Hospital: 'Test Three', Last_Updated: '21/04/2021', Total: 1500, Vacant: (Math.floor(Math.random() * 0)), Contact: '982082137', County: 'XYZ'}
 
 ];
 
 const ELEMENT_DATA_ICU: HospitalData[] = [
-  {Hospital: 'Test One ICU', Last_Updated: '21/04/2021', Total: 100, Vacant: 0, Contact: '982082137', County: 'XYZ'}
-  , {Hospital: 'Test Two ICU', Last_Updated: '21/04/2021', Total: 100, Vacant: 4, Contact: '982082137', County: 'ABC'}
-  , {Hospital: 'Test Three ICU', Last_Updated: '21/04/2021', Total: 100, Vacant: 6, Contact: '982082137', County: 'XYZ'}
+  {Hospital: 'Test One ICU', Last_Updated: '21/04/2021', Total: 100, Vacant: (Math.floor(1 + Math.random() * (4 - 1 + 1))), Contact: '982082137', County: 'XYZ'}
+  , {Hospital: 'Test Two ICU', Last_Updated: '21/04/2021', Total: 100, Vacant: (Math.floor(5 + Math.random() * (10-5))), Contact: '982082137', County: 'ABC'}
+  , {Hospital: 'Test Three ICU', Last_Updated: '21/04/2021', Total: 100, Vacant: (Math.floor(Math.random() * (1-0))), Contact: '982082137', County: 'XYZ'}
 
 ];
 
@@ -50,7 +50,6 @@ export class CovidDetailsDataComponent implements OnInit {
   dataSource = new MatTableDataSource();
   hospitals: Filter1[] = [{value: 'Test One', viewValue: 'Test One'}];
   counties: Filter1[] = [{value: 'XYZ', viewValue: 'XYZ'}];
-
   displayedColumns: string[] = ['Hospital', 'Last_Updated', 'Total', 'Vacant', 'Contact', 'County'];
   formGroup: FormGroup;
   id: any;
@@ -66,6 +65,9 @@ export class CovidDetailsDataComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    window.setTimeout(function() {
+      window.location.reload();
+    }, 30000);
    this.getData();
   }
 

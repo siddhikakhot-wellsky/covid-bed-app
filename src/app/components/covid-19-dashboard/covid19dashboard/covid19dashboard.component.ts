@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-covid19dashboard',
@@ -32,9 +33,12 @@ cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
  );
 
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private router: Router) {}
 
   ngOnInit() {
   } 
 
+  navigateTo(){
+    this.router.navigate(['HospitalBeds'])
+  }
 }
