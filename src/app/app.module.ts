@@ -1,3 +1,4 @@
+import { AgmCoreModule } from '@agm/core';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -37,8 +38,7 @@ import { HomeComponent } from './components/home/home.component';
     MatIconModule,
     MatInputModule,
     MatSortModule,
-    MatTableModule,
-
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

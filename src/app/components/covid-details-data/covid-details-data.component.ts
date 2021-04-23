@@ -3,7 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 export interface Filter1 {
   value: string;
@@ -57,7 +57,7 @@ export class CovidDetailsDataComponent implements OnInit {
   title: string;
   covidMoreBeds: string;
   covidLessBeds: string;
-  constructor(private fb: FormBuilder, private route: ActivatedRoute) {
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router) {
     this.formGroup = this.fb.group({
       Hospital: '',
       County: ''
@@ -146,5 +146,9 @@ export class CovidDetailsDataComponent implements OnInit {
   refresh(): void{
     this.formGroup.reset();
     this.getData();
+  }
+
+  openMaps(){
+    this.router.navigateByUrl('/maps?lat=51.673858&long=7.815982');
   }
 }
