@@ -31,6 +31,7 @@ import { GlobalSummaryComponent } from './components/charts/global-summary/globa
 import { ConfirmedBycountryComponent } from './components/charts/confirmed-bycountry/confirmed-bycountry.component';
 import { TotalSuppliesComponent } from './components/charts/total-supplies/total-supplies.component';
 import { MiniCardComponent } from './components/cards/mini-cards/mini-card/mini-card.component';
+import { PatientinfoComponent } from './components/charts/patientinfo/patientinfo.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { MiniCardComponent } from './components/cards/mini-cards/mini-card/mini-
     GlobalSummaryComponent,
     ConfirmedBycountryComponent,
     TotalSuppliesComponent,
-    MiniCardComponent
+    MiniCardComponent,
+    PatientinfoComponent
   ],
   imports: [
     BrowserModule,

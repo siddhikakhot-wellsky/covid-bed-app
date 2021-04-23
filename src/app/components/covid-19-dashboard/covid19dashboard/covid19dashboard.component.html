@@ -45,7 +45,7 @@
    </mat-grid-tile>
     <!--Table-->
     <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
-      <app-card title="Card 9"><div>Table Content Here</div></app-card>
+      <app-card title="Cases Overview"><app-patientinfo></app-patientinfo></app-card>
     </mat-grid-tile>
   </mat-grid-list>
  </div>
