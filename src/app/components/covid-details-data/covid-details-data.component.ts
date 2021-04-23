@@ -18,22 +18,22 @@ export interface ITableFilter{
 export interface HospitalData {
   Hospital: string;
   Last_Updated: string;
-  Total: string;
-  Vacant: string;
+  Total: number;
+  Vacant: number;
   Contact: string;
   County: string;
 }
 const ELEMENT_DATA: HospitalData[] = [
-  {Hospital: 'Test One', Last_Updated: '21/04/2021', Total: '100', Vacant: '0', Contact: '982082137', County: 'XYZ'}
-  , {Hospital: 'Test Two', Last_Updated: '21/04/2021', Total: '100', Vacant: '49', Contact: '982082137', County: 'ABC'}
-  , {Hospital: 'Test Three', Last_Updated: '21/04/2021', Total: '100', Vacant: '67', Contact: '982082137', County: 'XYZ'}
+  {Hospital: 'Test One', Last_Updated: '21/04/2021', Total: 100, Vacant: 0, Contact: '982082137', County: 'XYZ'}
+  , {Hospital: 'Test Two', Last_Updated: '21/04/2021', Total: 100, Vacant: 49, Contact: '982082137', County: 'ABC'}
+  , {Hospital: 'Test Three', Last_Updated: '21/04/2021', Total: 100, Vacant: 67, Contact: '982082137', County: 'XYZ'}
 
 ];
 
 const ELEMENT_DATA_ICU: HospitalData[] = [
-  {Hospital: 'Test One ICU', Last_Updated: '21/04/2021', Total: '100', Vacant: '0', Contact: '982082137', County: 'XYZ'}
-  , {Hospital: 'Test Two ICU', Last_Updated: '21/04/2021', Total: '100', Vacant: '4', Contact: '982082137', County: 'ABC'}
-  , {Hospital: 'Test Three ICU', Last_Updated: '21/04/2021', Total: '100', Vacant: '6', Contact: '982082137', County: 'XYZ'}
+  {Hospital: 'Test One ICU', Last_Updated: '21/04/2021', Total: 100, Vacant: 0, Contact: '982082137', County: 'XYZ'}
+  , {Hospital: 'Test Two ICU', Last_Updated: '21/04/2021', Total: 100, Vacant: 4, Contact: '982082137', County: 'ABC'}
+  , {Hospital: 'Test Three ICU', Last_Updated: '21/04/2021', Total: 100, Vacant: 6, Contact: '982082137', County: 'XYZ'}
 
 ];
 
@@ -102,13 +102,31 @@ export class CovidDetailsDataComponent implements OnInit {
     return true;
   }
 
-  getVacantBeds(){
-    let filteredData: HospitalData[] = [];
-    if (this.id == 1) {
-      filteredData = ELEMENT_DATA.filter(x => x.Vacant >= '50');
+  getTotal(): number{
+    if (this.id == 1){
+      return ELEMENT_DATA.map(x => x.Total).reduce((prev, curr) => prev + curr, 0);
     }
     else{
-      filteredData = ELEMENT_DATA_ICU.filter(x => x.Vacant >= '5');
+      return ELEMENT_DATA_ICU.map(x => x.Total).reduce((prev, curr) => prev + curr, 0);
+    }
+  }
+
+  getVacantTotal(): number{
+    if (this.id == 1){
+      return ELEMENT_DATA.map(x => x.Vacant).reduce((prev, curr) => prev + curr , 0);
+    }
+    else{
+      return ELEMENT_DATA_ICU.map(x => x.Vacant).reduce((prev, curr) => prev + curr , 0);
+    }
+  }
+
+  getVacantBeds(): void{
+    let filteredData: HospitalData[] = [];
+    if (this.id == 1) {
+      filteredData = ELEMENT_DATA.filter(x => x.Vacant >= 50);
+    }
+    else{
+      filteredData = ELEMENT_DATA_ICU.filter(x => x.Vacant >= 5);
     }
     this.dataSource = new MatTableDataSource(filteredData);
   }
