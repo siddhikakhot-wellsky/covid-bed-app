@@ -21,19 +21,19 @@ export interface HospitalData {
   Total: number;
   Vacant: number;
   Contact: string;
-  County: string;
+  State: string;
 }
 const ELEMENT_DATA: HospitalData[] = [
-  {Hospital: 'Test One', Last_Updated: '21/04/2021', Total: 1000, Vacant: (Math.floor(100 + Math.random() * 900)), Contact: '982082137', County: 'XYZ'}
-  , {Hospital: 'Test Two', Last_Updated: '21/04/2021', Total: 2000, Vacant: (Math.floor(Math.random() * 9)), Contact: '982082137', County: 'ABC'}
-  , {Hospital: 'Test Three', Last_Updated: '21/04/2021', Total: 1500, Vacant: (Math.floor(Math.random() * 0)), Contact: '982082137', County: 'XYZ'}
+  {Hospital: 'Barlow Respiratory Hospital', Last_Updated: '23/04/2021', Total: 1000, Vacant: (Math.floor(100 + Math.random() * 900)), Contact: '982082137', State: 'California'}
+  , {Hospital: 'Kindred Hospital -- La Mirada', Last_Updated: '23/04/2021', Total: 2000, Vacant: (Math.floor(Math.random() * 9)), Contact: '982082137', State: 'Ohio'}
+  , {Hospital: 'Whittier Hospital Medical Center', Last_Updated: '23/04/2021', Total: 1500, Vacant: (Math.floor(Math.random() * 0)), Contact: '982082137', State: 'New York'}
 
 ];
 
 const ELEMENT_DATA_ICU: HospitalData[] = [
-  {Hospital: 'Test One ICU', Last_Updated: '21/04/2021', Total: 100, Vacant: (Math.floor(1 + Math.random() * (4 - 1 + 1))), Contact: '982082137', County: 'XYZ'}
-  , {Hospital: 'Test Two ICU', Last_Updated: '21/04/2021', Total: 100, Vacant: (Math.floor(5 + Math.random() * (10-5))), Contact: '982082137', County: 'ABC'}
-  , {Hospital: 'Test Three ICU', Last_Updated: '21/04/2021', Total: 100, Vacant: (Math.floor(Math.random() * (1-0))), Contact: '982082137', County: 'XYZ'}
+  {Hospital: 'Barlow Respiratory Hospital', Last_Updated: '23/04/2021', Total: 100, Vacant: (Math.floor(1 + Math.random() * (4 - 1 + 1))), Contact: '982082137', State: 'New York'}
+  , {Hospital: 'Kindred Hospital -- La Mirada', Last_Updated: '23/04/2021', Total: 100, Vacant: (Math.floor(5 + Math.random() * (10-5))), Contact: '982082137', State: 'Ohio'}
+  , {Hospital: 'Whittier Hospital Medical Center', Last_Updated: '23/04/2021', Total: 100, Vacant: (Math.floor(Math.random() * (1-0))), Contact: '982082137', State: 'California'}
 
 ];
 
@@ -48,9 +48,12 @@ export class CovidDetailsDataComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   dataLoaded = false;
   dataSource = new MatTableDataSource();
-  hospitals: Filter1[] = [{value: 'Test One', viewValue: 'Test One'}];
-  counties: Filter1[] = [{value: 'XYZ', viewValue: 'XYZ'}];
-  displayedColumns: string[] = ['Hospital', 'Last_Updated', 'Total', 'Vacant', 'Contact', 'County'];
+  hospitals: Filter1[] = [{value: 'Barlow Respiratory Hospital', viewValue: 'Barlow Respiratory Hospital'},
+  {value: 'Kindred Hospital -- La Mirada', viewValue: 'Kindred Hospital -- La Mirada'}, 
+  {value: 'Whittier Hospital Medical Center', viewValue: 'Whittier Hospital Medical Center'}
+  ];
+  counties: Filter1[] = [{value: 'California', viewValue: 'California'}, {value: 'Ohio', viewValue: 'Ohio'}, {value: 'New York', viewValue: 'New York'}];
+  displayedColumns: string[] = ['Hospital', 'Last_Updated', 'Total', 'Vacant', 'Contact', 'State'];
   formGroup: FormGroup;
   id: any;
   title: string;
@@ -59,7 +62,7 @@ export class CovidDetailsDataComponent implements OnInit {
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private router: Router, private cdr:ChangeDetectorRef) {
     this.formGroup = this.fb.group({
       Hospital: '',
-      County: ''
+      State: ''
   });
     this.id = this.route.snapshot.paramMap.get('id');
    }
@@ -73,13 +76,13 @@ export class CovidDetailsDataComponent implements OnInit {
 
   getData(): void{
     if (this.id == 1){
-      this.title = 'Covid 19 Beds';
+      this.title = 'General Wards';
       this.covidLessBeds = 'Less than 50 beds';
       this.covidMoreBeds = '50 or more beds';
       this.dataSource = new MatTableDataSource(ELEMENT_DATA);
     }
     else {
-      this.title = 'Covid 19 ICU Beds';
+      this.title = 'ICU Wards';
       this.covidLessBeds = 'Less than 5 beds';
       this.covidMoreBeds = '5 or more beds';
       this.dataSource = new MatTableDataSource(ELEMENT_DATA_ICU);

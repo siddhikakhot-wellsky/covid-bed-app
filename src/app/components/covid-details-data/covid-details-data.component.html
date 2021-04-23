@@ -21,6 +21,16 @@
             <form [formGroup]="formGroup">  
             <div class="row">
                 <div class="col-2 filterStyle ml-4 pt-3 pl-4 ">FILTER</div>
+                <div class="col-2 mr-5 ml-3 "> 
+                    <mat-form-field>
+                        <mat-label>State</mat-label>
+                        <mat-select formControlName="State">
+                        <mat-option *ngFor="let county of counties" [value]="county.value">
+                            {{county.viewValue}}
+                        </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                  </div>
                 <div class="col-2 mr-3 ml-3"> 
                     <mat-form-field>
                         <mat-label>Hospital</mat-label>
@@ -31,16 +41,7 @@
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="col-2 mr-5 ml-3 "> 
-                    <mat-form-field>
-                        <mat-label>County</mat-label>
-                        <mat-select formControlName="County">
-                        <mat-option *ngFor="let county of counties" [value]="county.value">
-                            {{county.viewValue}}
-                        </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-                  </div>
+               
                   <div class="col-1 pt-3 pr-1"> <button mat-button color="primary" class="btn btn-info btn-sm" (click)="applyFilters()">APPLY</button></div>
                   <div class="col-1 pt-3 pr-1"> <button mat-button color="primary" class="btn btn-info btn-sm" (click)="refresh()"> RESET</button></div>
             

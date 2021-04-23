@@ -9,7 +9,7 @@
 
     <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
     [rowspan]="( cardLayout | async )?.miniCard.rows">
-    <app-mini-card title="ICU availability" icon="local_hospital" textValue="ICU availability" value="580" color="red" percentValue="48"></app-mini-card>
+    <app-mini-card title="ICU Availability" icon="local_hospital" textValue="ICU availability" value="580" color="red" percentValue="48"></app-mini-card>
     </mat-grid-tile>
 
     <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
@@ -19,32 +19,32 @@
 
     <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
     [rowspan]="( cardLayout | async )?.miniCard.rows">
-    <app-mini-card title="No Of Beds Available" icon="accessibility" isIncrease="true" textValue="No Of Beds Available" value="220000" color="green" percentValue="56" (click)="navigateTo()"></app-mini-card>
+    <app-mini-card title="No of Resources Available" icon="accessibility" isIncrease="true" textValue="No Of Resources Available" value="220000" color="green" percentValue="56" (click)="navigateTo()"></app-mini-card>
     </mat-grid-tile>
 
     <!--Charts-->
     <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
-      <app-card title="Confirmed cases by country">
+      <app-card title="Confirmed Cases by States">
           <app-confirmed-bycountry></app-confirmed-bycountry>
       </app-card>
    </mat-grid-tile>
    <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
-      <app-card title="confirmed cases">
+      <app-card title="Confirmed Cases">
           <app-confirmed-cases></app-confirmed-cases>
       </app-card>
    </mat-grid-tile>
    <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
-      <app-card title="Global summary">
+      <app-card title="Global Summary">
           <app-global-summary></app-global-summary>
       </app-card>
    </mat-grid-tile>
    <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
-      <app-card title="Total supplies">
+      <app-card title="Total Supplies">
           <app-total-supplies></app-total-supplies>
       </app-card>
    </mat-grid-tile>
     <!--Table-->
-    <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows">
+    <mat-grid-tile [colspan]="( cardLayout | async )?.table.cols" [rowspan]="( cardLayout | async )?.table.rows" class="tableCard">
       <app-card title="Cases Overview"><app-patientinfo></app-patientinfo></app-card>
     </mat-grid-tile>
   </mat-grid-list>
