@@ -5,6 +5,7 @@ import { CovidDetailsDataComponent } from './components/covid-details-data/covid
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
+  { path: '', redirectTo:'/dashboard',pathMatch:'full'},
   { path: 'dashboard', component: Covid19dashboardComponent },
   {
     path: 'HospitalBeds', component:HomeComponent
@@ -12,12 +13,7 @@ const routes: Routes = [
   {
     path: 'covidDetails/:id', component:CovidDetailsDataComponent
   },
-  {
-    path:'', component:Covid19dashboardComponent
-  }
-
 ];
- 
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

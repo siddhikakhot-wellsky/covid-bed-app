@@ -4,8 +4,24 @@
     <!--Mini Cards-->
     <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
     [rowspan]="( cardLayout | async )?.miniCard.rows">
-    <app-mini-card title="Available Hospitals" textValue="Total Hospitals" value="1200" color="green" percentValue="56"></app-mini-card>
+    <app-mini-card title="Available Hospitals"  icon="local_hospital" isIncrease="true" textValue="Total Hospitals" value="2600" color="green" percentValue="56"></app-mini-card>
     </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
+    [rowspan]="( cardLayout | async )?.miniCard.rows">
+    <app-mini-card title="ICU availability" icon="local_hospital" textValue="ICU availability" value="580" color="red" percentValue="48"></app-mini-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
+    [rowspan]="( cardLayout | async )?.miniCard.rows">
+    <app-mini-card title="Medicine Availability" isIncrease="true" icon="local_pharmacy" textValue="Medicine Availability" value="Pharmacy" color="green" percentValue="56"></app-mini-card>
+    </mat-grid-tile>
+
+    <mat-grid-tile [colspan]="( cardLayout | async )?.miniCard.cols"
+    [rowspan]="( cardLayout | async )?.miniCard.rows">
+    <app-mini-card title="No Of Beds Available" icon="accessibility" isIncrease="true" textValue="No Of Beds Available" value="220000" color="green" percentValue="56"></app-mini-card>
+    </mat-grid-tile>
+
     <!--Charts-->
     <mat-grid-tile [colspan]="( cardLayout | async )?.chart.cols" [rowspan]="( cardLayout | async )?.chart.rows">
       <app-card title="Confirmed cases by country">
